@@ -10,8 +10,6 @@ export default function ImagesListPage() {
     const searchParams = usePathname()
     const slug = searchParams.split("=").pop() || '';
     const {data, loading, error} = useGetSearchData({slug, type: 'image'});
-    console.log({searchParams, data})
-    // Extract the slug from the URL
     
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -28,7 +26,7 @@ export default function ImagesListPage() {
                 <div className="w-full flex-col grid ">
                     {data.results.map((item) => (
                         <div key={item.id} className="border rounded m-4 p-4">
-                        <Link href={`/images/${item.id}`}>
+                        <Link href={`/image/item/${item.id}`}>
                             <img
                             src={item.thumbnail_url}
                             alt={item.title}

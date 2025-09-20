@@ -8,14 +8,13 @@ import { ContentType } from "./_hooks/types";
 export default function Home() {
   const router = useRouter();
 
-  const [selected, setSelected] = useState<ContentType>('video');
+  const [selected, setSelected] = useState<ContentType>('image');
   const [query, setQuery] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push(`/${selected}/search=${encodeURIComponent(query)}`);
   }
-
 
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -35,7 +34,7 @@ export default function Home() {
 
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          {/* <button onClick={()=>setSelected('video')} className="rounded-full border border-solid border-transparent bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto">Video</button> */}
+          {/* <button onClick={()=>setSelected('video')} className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]">Video</button> */}
           <button onClick={()=>setSelected('image')} className="rounded-full border border-solid border-transparent bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto">Image</button>
           {/* <button onClick={()=>setSelected('audio')} className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]" >Audio</button> */}
         </div>
